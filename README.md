@@ -80,3 +80,48 @@ The toolkit is operated via the command line with a simple and consistent struct
 
 ```bash
 python validator.py --type <type> --url <target_url> --payload "<payload>" [options]
+
+
+# Validator README
+
+> A small, reliable CLI validator for common web vulnerabilities: XSS, Open Redirect, SQLi, RCE/File-read, and SSRF.
+
+---
+
+## Table of Contents
+- [Command-Line Arguments](#command-line-arguments)
+- [Usage Examples](#usage-examples)
+- [Validator Deep Dive](#validator-deep-dive)
+  - [Cross-Site Scripting (XSS)](#1-cross-site-scripting-xss-)
+  - [Open Redirect](#2-open-redirect-)
+  - [SQL Injection (SQLi)](#3-sql-injection-sqli-)
+  - [Remote Code Execution (RCE) / File Read](#4-remote-code-execution-rce--file-read-)
+  - [Server-Side Request Forgery (SSRF)](#5-server-side-request-forgery-ssrf-)
+- [Handling Advanced Use Cases](#handling-advanced-use-cases-)
+- [Export to Sheets](#export-to-sheets)
+- [AI Assistance](#ai-assistance)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Command-Line Arguments
+
+| Argument    | Description                                                                 | Required |
+|---|---:|
+| `--type`    | Vulnerability to validate: `xss`, `open_redirect`, `sqli`, `rce`, `ssrf`.  | Yes |
+| `--url`     | The full target URL, ending at the injection point (e.g., `.../page?param=`). | Yes |
+| `--payload` | The vulnerability payload to test.                                         | Yes |
+| `--method`  | HTTP method to use (`GET` or `POST`). Default is `GET`.                    | No |
+| `--data`    | Request body for POST. Use `PAYLOAD` as placeholder (e.g., `comment=PAYLOAD`). | No |
+| `--headers` | JSON-formatted string of HTTP headers (e.g., `{"Authorization":"Bearer ..."}`). | No |
+| `--output`  | Output format (`text` or `json`). Default is `text`.                      | No |
+
+---
+
+## Usage Examples
+
+### Basic (GET)
+```bash
+python validator.py --type xss --url "http://example.com/page?name=" --payload "<script>alert('xss')</script>"
+
