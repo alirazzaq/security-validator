@@ -103,5 +103,4 @@ This project and its documentation were developed with assistance from AI. Key p
 
 * "Generate a Python class for a generic XSS validator using Selenium that accepts custom URLs, payloads, and headers."
 * "Provide the theoretical justification for using differential analysis (time-based and error-based) to validate SQL injection."
-* "Create a professional README.md for a Python security tool, including sections for installation, usage, and test cases for common web vulnerabilities."
-* "Write a Python script using argparse to create a CLI for a modular security validation tool."
+
